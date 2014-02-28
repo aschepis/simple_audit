@@ -1,6 +1,6 @@
 require 'rake'
 require 'rake/testtask'
-require 'rake/rdoctask'
+require 'rdoc/task'
 
 desc 'Default: run unit tests.'
 task :default => :test
@@ -34,12 +34,12 @@ begin
     'generators/**/*',
     'rails/**/*',
   ].to_a + test_files
-  
+
   Jeweler::Tasks.new do |gemspec|
     gemspec.name = "simple_audit"
     gemspec.summary = "Simple auditing solution for ActiveRecord models"
-    gemspec.description = <<-EOD 
-      Provides a straightforward way for auditing changes on active record models, especially for composite entities. 
+    gemspec.description = <<-EOD
+      Provides a straightforward way for auditing changes on active record models, especially for composite entities.
       Also provides helper methods for easily rendering an audit trail in Ruby on Rails views.
     EOD
     gemspec.email = ["gabriel.tarnovan@cubus.ro", "mihai.tarnovan@cubus.ro"]
@@ -48,7 +48,7 @@ begin
     gemspec.version = "0.2.0"
     gemspec.files = gem_files
     gemspec.test_files = test_files
-    
+
     gemspec.rubyforge_project = 'simple_audit'
   end
 rescue LoadError
